@@ -430,7 +430,7 @@ export default function AreaColaborador() {
            AND (VENCOD = ${codVendedor} OR ${codVendedor} IS NULL)
            AND VENCOD <> 0
            AND ATIVO = 1
-           ORDER BY DIAS DESC`;
+           ORDER BY DIAS ASC`;
           const response = await api.post(
             `/api/Sankhya/DadosDashSankhya?sql=${encodeURIComponent(sql)}`
           );
