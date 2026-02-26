@@ -424,7 +424,7 @@ export default function AreaColaborador() {
         .then(async () => {
           const diasNum = Number(diasSemCompra);
           const condDias =
-            !diasSemCompra || isNaN(diasNum) ? 'dias >= 90' : `dias = ${diasNum}`;
+            !diasSemCompra || isNaN(diasNum) ? 'dias >= 60' : `dias = ${diasNum}`;
           const sql = `SELECT * FROM AD_VCLIENTES
           WHERE ${condDias}
            AND (VENCOD = ${codVendedor} OR ${codVendedor} IS NULL)
@@ -3568,7 +3568,7 @@ ORDER BY 1,3`;
               <Modal.Body>
                 <div className="pedido-selec">
                   <h1 style={{ marginTop: 5 }} className="pedidoNumber">
-                    Identificamos cadastros na sua base com 90 dias de inatividade. Você tem 30 dias para reativá-los antes que fiquem indisponíveis para venda.
+                    Identificamos cadastros na sua base com 60 dias de inatividade. Você tem 30 dias para reativá-los antes que fiquem indisponíveis para venda.
                   </h1>
                   <h1 style={{ marginTop: 15 }} className="pedidoNumber">
                     Deseja visualizar a lista?
@@ -3602,9 +3602,14 @@ ORDER BY 1,3`;
               backdrop="static"
             >
               <Modal.Header closeButton>
-                <h1>CLIENTES SEM COMPRA 90D</h1>
+                <h1>CLIENTES SEM COMPRA 60D</h1>
               </Modal.Header>
               <Modal.Body>
+                <div className="pedido-selec">
+                  <h1 style={{ marginTop: 5 }} className="pedidoNumber">
+                    Estes clientes estão há 60 dias sem compra. Em 30 dias poderão ser inativados para venda.
+                  </h1>
+                </div>
                 <div style={{ marginTop: 5 }} className="divbuttondrop">
                   <button
                     className="buttondropTitle"
