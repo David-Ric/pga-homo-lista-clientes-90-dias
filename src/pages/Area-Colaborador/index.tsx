@@ -3568,7 +3568,10 @@ ORDER BY 1,3`;
               <Modal.Body>
                 <div className="pedido-selec">
                   <h1 style={{ marginTop: 5 }} className="pedidoNumber">
-                    Identificamos cadastros na sua base com 60 dias de inatividade. Você tem 30 dias para reativá-los antes que fiquem indisponíveis para venda.
+                    Identificamos clientes em sua carteira que estão há 60 dias sem realizar compras. Caso não haja novos pedidos, esses cadastros poderão ser inativados em até 30 dias.
+                  </h1>
+                  <h1 style={{ marginTop: 10 }} className="pedidoNumber">
+                    Solicitamos que revise a lista e priorize ações de contato para manter os clientes ativos e gerar novas oportunidades de negócio.
                   </h1>
                   <h1 style={{ marginTop: 15 }} className="pedidoNumber">
                     Deseja visualizar a lista?
