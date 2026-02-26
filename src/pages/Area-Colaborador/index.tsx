@@ -3669,12 +3669,12 @@ ORDER BY 1,3`;
                           <th className="th1">Dias</th>
                           <th className="th1">Código</th>
                           <th className="th1">Cliente</th>
+                          <th className="th1">Última Compra</th>
+                          <th className="th1">Valor</th>
                           <th className="th1">UF</th>
                           <th className="th1">Cidade</th>
                           <th className="th1">Telefone</th>
                           <th className="th1">Email</th>
-                          <th className="th1">Última Compra</th>
-                          <th className="th1">Valor</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -3685,12 +3685,12 @@ ORDER BY 1,3`;
                                 <td className="th1">{item?.dias}</td>
                                 <td className="th1">{item?.codpar}</td>
                                 <td className="th1">{item?.nomepar}</td>
+                                <td className="th1">{item?.dtneg}</td>
+                                <td className="th1">R$: {moeda(item?.vlrnota)}</td>
                                 <td className="th1">{item?.uf}</td>
                                 <td className="th1">{item?.nomecid}</td>
                                 <td className="th1">{item?.telefone}</td>
                                 <td className="th1">{item?.email}</td>
-                                <td className="th1">{item?.dtneg}</td>
-                                <td className="th1">R$: {moeda(item?.vlrnota)}</td>
                               </tr>
                             ))}
                           </>
