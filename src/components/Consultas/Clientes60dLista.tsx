@@ -12,6 +12,7 @@ import Footer from '../Footer/Footer';
 import FooterMobile from '../Footer/FooterMobile';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import logoSankhya from '../../assets/logo-dark.png';
+import { moeda } from '../../Masks/Masks';
 export default function Clientes60dLista() {
   const usuario: iDadosUsuario = JSON.parse(localStorage.getItem('@Portal/usuario') || '{}');
   const [todosItens, setTodosItens] = useState<any[]>([]);
@@ -54,12 +55,11 @@ export default function Clientes60dLista() {
             nomecid: curr[9],
             endereco: curr[10],
             complemento: curr[11],
-            bairro: curr[12],
-            cep: curr[13],
-            ultima_compra: curr[18],
-            valor_ultima: curr[19],
-            telefone: curr[20],
-            email: curr[21],
+            telefone: curr[12],
+            email: curr[13],
+            ult_nunota: curr[14],
+            dtneg: curr[15],
+            vlrnota: curr[17],
           };
         });
         setTodosItens(result);
@@ -141,6 +141,8 @@ export default function Clientes60dLista() {
                     <Table responsive className="table-global table  main-table">
                       <thead>
                         <tr className="tituloTab">
+                          <th className="th1">Dias</th>
+                          <th className="th1">Código</th>
                           <th className="th1">Cliente</th>
                           <th className="th1">Última Compra</th>
                           <th className="th1">Valor</th>
@@ -148,7 +150,6 @@ export default function Clientes60dLista() {
                           <th className="th1">Cidade</th>
                           <th className="th1">Telefone</th>
                           <th className="th1">Email</th>
-                          <th className="th1">Dias</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -156,14 +157,15 @@ export default function Clientes60dLista() {
                           <>
                             {lista.map((item: any, idx: number) => (
                               <tr key={idx}>
+                                <td className="th1" style={{ textAlign: 'right' }}>{String(item?.dias ?? '')}</td>
+                                <td className="th1">{String(item?.codpar ?? '')}</td>
                                 <td className="th1">{String(item?.nomepar ?? '')}</td>
-                                <td className="th1">{String(item?.ultima_compra ?? '')}</td>
-                                <td className="th1" style={{ textAlign: 'right' }}>{String(item?.valor_ultima ?? '')}</td>
+                                <td className="th1">{String(item?.dtneg ?? '')}</td>
+                                <td className="th1">R$: {moeda(item?.vlrnota)}</td>
                                 <td className="th1">{String(item?.uf ?? '')}</td>
                                 <td className="th1">{String(item?.nomecid ?? '')}</td>
                                 <td className="th1">{String(item?.telefone ?? '')}</td>
                                 <td className="th1">{String(item?.email ?? '')}</td>
-                                <td className="th1" style={{ textAlign: 'right' }}>{String(item?.dias ?? '')}</td>
                               </tr>
                             ))}
                           </>
