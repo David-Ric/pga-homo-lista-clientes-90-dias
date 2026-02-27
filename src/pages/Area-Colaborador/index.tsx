@@ -324,6 +324,7 @@ export default function AreaColaborador() {
   useEffect(() => {
     VerificarPedidosPendentes();
   }, []);
+  // Removido: abertura automática de modais por flags de localStorage para evitar modais aleatórios ao navegar pelo menu
 
   async function VerificarPedidosPendentes() {
     try {
@@ -356,6 +357,7 @@ export default function AreaColaborador() {
 
   async function AbrirListaPendentes() {
     try {
+      setSucess(50);
       const usuarioLocal: iDadosUsuario = JSON.parse(
         localStorage.getItem('@Portal/usuario') || '{}'
       );
@@ -365,6 +367,7 @@ export default function AreaColaborador() {
       let pagina = 1;
       let acumulados: any[] = [];
       while (true) {
+        setSucess(Math.min(90, 50 + pagina * 10));
         const resp = await api.get(
           `/api/CabecalhoPedidoVenda/filter/vendedor?pagina=${pagina}&totalpagina=${pageSizeApi}&codVendedor=${codVendedor}`
         );
@@ -385,6 +388,7 @@ export default function AreaColaborador() {
       setListaPendEnvio(paginated);
       setTotalPaginasPendEnvio(Math.max(1, Math.ceil(itensNaoEnviados.length / pageSizeFront)));
       try {
+        setSucess(95);
         const ids = Array.from(
           new Set(
             paginated
@@ -408,8 +412,11 @@ export default function AreaColaborador() {
         );
         setParceiroDocs(docsMap);
       } catch {}
+      setSucess(100);
+      setShowMensageSankhya(false);
       setShowListaPendEnvio(true);
     } catch {
+      setShowMensageSankhya(false);
       setShowListaPendEnvio(true);
     }
   }
@@ -3537,8 +3544,9 @@ ORDER BY 1,3`;
                       className="btn btn-primary"
                       onClick={() => {
                         setShowPendEnvio(false);
+                            setShowMensageSankhya(true);
+                            setSucess(25);
                         AbrirListaPendentes();
-                        VerificarClientesInativos90Dias();
                       }}
                     >
                       Sim
@@ -3725,7 +3733,10 @@ ORDER BY 1,3`;
             <Modal
               className="modal-confirmLista"
               show={showListaPendEnvio}
-              onHide={() => setShowListaPendEnvio(false)}
+              onHide={() => {
+                setShowListaPendEnvio(false);
+                VerificarClientesInativos90Dias();
+              }}
               backdrop="static"
             >
               <Modal.Header closeButton>

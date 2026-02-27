@@ -766,6 +766,8 @@ export default function SideNavBar() {
   let [respostaSank, setrespostaSank] = useState('');
   let [sucess, setSucess] = useState(0);
   let [utilizando, setUtulizando] = useState(false);
+  const [hasPendEnvio, setHasPendEnvio] = useState(false);
+  const [hasInativos60, setHasInativos60] = useState(false);
   let [permitirMenu, setUPermitirMenu] = useState(false);
   let [permitirPagina, setUPermitirPagina] = useState(false);
   let [permitirMenuGrupo, setUPermitirMenuGrupo] = useState(false);
@@ -919,6 +921,37 @@ export default function SideNavBar() {
     console.log('paginas', validPagina);
     console.log('menus', menuPrincipal);
     PostsLidos();
+  }, []);
+  useEffect(() => {
+    (async () => {
+      try {
+        const codVendedor = vendedorCod;
+        try {
+          const r = await api.get(
+            `/api/CabecalhoPedidoVenda/filter/vendedor?pagina=1&totalpagina=1000&codVendedor=${codVendedor}`
+          );
+          const itensTodos = r?.data?.data || [];
+          const itens =
+            itensTodos.filter(
+              (x: any) => String(x?.status || '').trim() === 'Não Enviado'
+            ) || [];
+          setHasPendEnvio(Array.isArray(itens) && itens.length > 0);
+        } catch {}
+        try {
+          await api.post(`/api/Sankhya/login`);
+          const sql = `SELECT TOP 1 * FROM AD_VCLIENTES
+            WHERE dias >= 60
+             AND (VENCOD = ${codVendedor} OR ${codVendedor} IS NULL)
+             AND VENCOD <> 0
+             AND ATIVO = 1`;
+          const rr = await api.post(
+            `/api/Sankhya/DadosDashSankhya?sql=${encodeURIComponent(sql)}`
+          );
+          const rows = rr?.data?.responseBody?.rows || [];
+          setHasInativos60(Array.isArray(rows) && rows.length > 0);
+        } catch {}
+      } catch {}
+    })();
   }, []);
 
   async function getComunicados() {
@@ -3185,6 +3218,40 @@ export default function SideNavBar() {
                                             {/* ========================================== fim =============================================== */}
                                           </>
                                         )}
+                                        {menu?.id == 4 && hasPendEnvio && (
+                                          <Link
+                                            style={{ display: 'flex', marginLeft: 10 }}
+                                            to={'/consulta-pendencias'}
+                                            onClick={() => {
+                                              setExpendState(false);
+                                              setespand(false);
+                                              setActiveAccordion(null);
+                                              setActiveAccordionAdmin(null);
+                                            }}
+                                          >
+                                            <span className="menus-nav">
+                                              <TbReportSearch id="icon-menu" />
+                                              <span className="visivel">Pedidos Pendentes de Envio</span>
+                                            </span>
+                                          </Link>
+                                        )}
+                                        {menu?.id == 4 && hasInativos60 && (
+                                          <Link
+                                            style={{ display: 'flex', marginLeft: 10 }}
+                                            to={'/consulta-clientes-60d'}
+                                            onClick={() => {
+                                              setExpendState(false);
+                                              setespand(false);
+                                              setActiveAccordion(null);
+                                              setActiveAccordionAdmin(null);
+                                            }}
+                                          >
+                                            <span className="menus-nav">
+                                              <TbReportSearch id="icon-menu" />
+                                              <span className="visivel">Clientes sem Compra 60D</span>
+                                            </span>
+                                          </Link>
+                                        )}
                                       </Accordion.Body>
                                     </Accordion.Item>
                                   </Accordion>
@@ -3964,6 +4031,7 @@ export default function SideNavBar() {
                                             {/* ========================================== fim =============================================== */}
                                           </>
                                         )}
+                                        {menu?.id == 4 ? <></> : <></>}
                                       </Accordion.Body>
                                     </Accordion.Item>
                                   </Accordion>
@@ -4009,6 +4077,61 @@ export default function SideNavBar() {
                   </button>
                 </Modal.Body>
               </Modal>
+              {Number(usuario?.username) > 0 ? (
+                <>
+                  <li className="menuInterativo" style={{ marginTop: 10 }}>
+                    <Accordion className={isExpanded ? 'menuAberto' : 'menuFechado'} flush>
+                      <Accordion.Item eventKey="acompanhamentos">
+                        <Accordion.Header
+                          onClick={() => {
+                            setExpendState(true);
+                            TextMenu();
+                          }}
+                        >
+                          <span className="menus-nav">
+                            <FaSearchPlus id="icon-menu" />
+                            {espand && <span className="nome-menu">Acompanhamentos</span>}
+                          </span>
+                        </Accordion.Header>
+                        <Accordion.Body>
+                          <Link
+                            style={{ display: 'flex', marginLeft: 10 }}
+                            to={'/consulta-pendencias'}
+                            onClick={() => {
+                              setExpendState(false);
+                              setespand(false);
+                              setActiveAccordion(null);
+                              setActiveAccordionAdmin(null);
+                            }}
+                          >
+                            <span className="menus-nav">
+                              <TbReportSearch id="icon-menu" />
+                              <span className="visivel">Pedidos Pendentes de Envio</span>
+                            </span>
+                          </Link>
+                          <Link
+                            style={{ display: 'flex', marginLeft: 10 }}
+                            to={'/consulta-clientes-60d'}
+                            onClick={() => {
+                              setExpendState(false);
+                              setespand(false);
+                              setActiveAccordion(null);
+                              setActiveAccordionAdmin(null);
+                            }}
+                          >
+                            <span className="menus-nav">
+                              <TbReportSearch id="icon-menu" />
+                              <span className="visivel">Clientes sem Compra 60D</span>
+                            </span>
+                          </Link>
+                        </Accordion.Body>
+                      </Accordion.Item>
+                    </Accordion>
+                  </li>
+                </>
+              ) : (
+                <></>
+              )}
             </ul>
           </div>
         </div>

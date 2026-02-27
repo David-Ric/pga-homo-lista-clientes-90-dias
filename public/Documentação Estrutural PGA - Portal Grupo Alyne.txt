@@ -1,0 +1,344 @@
+Documentação Estrutural PGA - Portal Grupo Alyne
+
+FRONTEND
+- React: ^18.2.0
+- Node: v18.15.0
+- Vite: ^5.0.0
+- Comandos:
+  - Iniciar (dev): npm run dev
+  - Build (produção): npm run build
+- API base: src/services/api.ts
+
+Pages
+- Home (/)
+- Recuperar-Senha (/recuperar-senha)
+- Redefinir-Senha (/redefinir-senha)
+- Meu-Perfil (/meu-perfil)
+- Dashboard (/dashboard)
+- Configuracao (/configuracoes)
+- Relatorio-Vendedor (/relatorio-vendedor)
+- Relatorio_PedNaoSeraFaturado (/relpednaoserafat)
+- Area-Colaborador (/espaco-colaborador)
+- Acompanhamento-Pedido (/acompanhamento-de-pedidos)
+- Comunicacao-Interna (/comunicacao-interna)
+- Comissoes (/comissoes)
+- Comunicacao-Comercial (/comunicacao-interna-comercial)
+- Sessao (/sessoes-em-uso)
+- Log-Acao (/log-acoes)
+- Usuario (/cadastro-usuarios)
+- Grupo-Produto (/cadastro-grupos-produtos)
+- Grupo-Usuario (/cadastro-grupo-usuarios)
+- Parceiro (/cadastro-parceiros)
+- Produto (/cadastro-produtos)
+- Produto-Concorrente (/produtos-concorrentes)
+- Concorrentes (/cadastro-concorrentes)
+- Rdvs (/cadastro-Rdv)
+- Vendedor (/cadastro-vendedores)
+- Tipo-Negociacao (/cadastro-tipo-negociacao)
+- Tabela-Preco (/tabela-de-preco)
+- Empresa (/cadastro-tipo-empresa)
+- Tabela-Preco-Cliente (/tabela-de-preco-cliente)
+- Pagina-Base (/cadastro-de-paginas)
+- Montar-Menu (/montar-menu)
+- Novas-Telas (/cadastro-telas)
+- Pagina-Default (/tela/:parametro)
+- Acompanhamento-Vendas (/acompanhamento-vendas)
+- Etiqueta (/etiquetas)
+- Pedido (/pedido_vendas)
+- Pedidos-Em-Processo (/pedidos-em-processamento)
+- Chat (/chat)
+- Campanhas (/acompanhamento-de-campanhas)
+- Consultas: Pedidos Pendentes de Envio (/consulta-pendencias)
+- Consultas: Clientes sem Compra 60D (/consulta-clientes-60d)
+
+VERSIONAMENTO GIT
+- Versões (public/VersoesFront.json):
+  - 1.0.0 (23/03/2023) - data de publicação em produção
+  - 1.0.1 (03/04/2023) - data de publicação em produção
+  - 1.0.2 (08/05/2023) - data de publicação em produção
+  - 1.0.3 (18/05/2023) - data de publicação em produção
+  - 1.0.4 (25/05/2023) - data de publicação em produção
+  - 1.0.5 (29/05/2023) - data de publicação em produção
+  - 1.0.6 (29/05/2023) - data de publicação em produção
+  - 1.0.7 (30/05/2023) - data de publicação em produção
+  - 1.0.8 (31/05/2023) - data de publicação em produção
+  - 1.0.9 (01/06/2023) - data de publicação em produção
+  - 1.1.0 (01/06/2023) - data de publicação em produção
+  - 1.1.001 (01/06/2023) - data de publicação em produção
+  - 1.1.002 (02/06/2023) - data de publicação em produção
+  - 1.1.003 (13/06/2023) - data de publicação em produção
+  - 1.1.004 (13/06/2023) - data de publicação em produção
+  - 1.1.005 (15/06/2023) - data de publicação em produção
+  - 1.1.006 (15/06/2023) - data de publicação em produção
+  - 1.1.007 (19/06/2023) - data de publicação em produção
+  - 1.1.008 (22/06/2023) - data de publicação em produção
+  - 1.1.008 (28/06/2023) - data de publicação em produção
+  - 1.1.009 (05/07/2023) - data de publicação em produção
+  - 1.1.010 (06/07/2023) - data de publicação em produção
+  - 1.1.011 (13/07/2023) - data de publicação em produção
+  - 1.1.012 (13/07/2023) - data de publicação em produção
+  - 1.1.013 (13/07/2023) - data de publicação em produção
+  - 1.1.015 (24/07/2023) - data de publicação em produção
+  - 1.1.016 (27/07/2023) - data de publicação em produção
+  - 1.1.017 (28/07/2023) - data de publicação em produção
+  - 1.1.018 (01/08/2023) - data de publicação em produção
+  - 1.1.019 (09/08/2023) - data de publicação em produção
+  - 1.1.020 (09/08/2023) - data de publicação em produção
+  - 1.1.021 (18/08/2023) - data de publicação em produção
+  - 1.1.022 (21/08/2023) - data de publicação em produção
+  - 1.1.023 (22/08/2023) - data de publicação em produção
+  - 1.1.024 (22/08/2023) - data de publicação em produção
+  - 1.1.025 (23/08/2023) - data de publicação em produção
+  - 1.1.026 (24/08/2023) - data de publicação em produção
+  - 1.1.027 (24/08/2023) - data de publicação em produção
+  - 1.1.028 (24/08/2023) - data de publicação em produção
+  - 1.1.029 (25/08/2023) - data de publicação em produção
+  - 1.1.030 (28/08/2023) - data de publicação em produção
+  - 1.1.031 (29/08/2023) - data de publicação em produção
+  - 1.1.032 (29/08/2023) - data de publicação em produção
+  - 1.1.033 (29/08/2023) - data de publicação em produção
+  - 1.1.034 (01/11/2023) - data de publicação em produção
+  - 1.1.035 (11/09/2023) - data de publicação em produção
+  - 1.1.036 (12/09/2023) - data de publicação em produção
+  - 1.1.037 (19/09/2023) - data de publicação em produção
+  - 1.1.038 (20/09/2023) - data de publicação em produção
+  - 1.1.039 (25/09/2023) - data de publicação em produção
+  - 1.1.040 (02/10/2023) - data de publicação em produção
+  - 1.1.041 (05/10/2023) - data de publicação em produção
+  - 1.1.042 (11/10/2023) - data de publicação em produção
+  - 1.1.043 (16/10/2023) - data de publicação em produção
+  - 1.1.044 (01/11/2023) - data de publicação em produção
+  - 1.1.045 (16/11/2023) - data de publicação em produção
+  - 1.1.046 (16/11/2023) - data de publicação em produção
+  - 1.1.047 (18/11/2023) - data de publicação em produção
+  - 1.1.048 (08/01/2025) - data de publicação em produção
+  - 1.1.049 (02/03/2026) - data de publicação em produção
+  - 1.1.050 (15/03/2026) - data de publicação em produção
+
+Detalhes de Alterações por Versão
+- 1.1.021 (18/08/2023) - data de publicação em produção
+  - Implementações:
+    - banco off-line
+  - Correções:
+    - erro do valor unitario zerado apos duplicar ou editar um pedido
+    - erro de pesquisa de produtos da distribuidora ao editar ou duplicar um pedido
+    - erro de falso 'Enviado' ao enviar dados para o sankhya sem a conexão
+    - erro na validação do pedido enviado
+- 1.1.022 (21/08/2023) - data de publicação em produção
+  - Implementações:
+    - banco off-line
+  - Correções:
+    - erro do valor unitario zerado apos duplicar ou editar um pedido
+    - erro de pesquisa de produtos da distribuidora ao editar ou duplicar um pedido
+    - erro de falso 'Enviado' ao enviar dados para o sankhya sem a conexão
+    - erro na validação do pedido enviado
+    - ajuste do pedido pendente de envio
+- 1.1.023 (22/08/2023) - data de publicação em produção
+  - Implementações:
+    - banco off-line
+  - Correções:
+    - erro do valor unitario zerado apos duplicar ou editar um pedido
+    - erro de pesquisa de produtos da distribuidora ao editar ou duplicar um pedido
+    - erro de falso 'Enviado' ao enviar dados para o sankhya sem a conexão
+    - erro na validação do pedido enviado
+    - ajuste do pedido pendente de envio
+    - correção no botão cancelar pedido, no caso de excluir o pedido e o botão voltar tela
+- 1.1.024 (22/08/2023) - data de publicação em produção
+  - Implementações:
+    - banco off-line
+  - Correções:
+    - erro do valor unitario zerado apos duplicar ou editar um pedido
+    - erro de pesquisa de produtos da distribuidora ao editar ou duplicar um pedido
+    - erro de falso 'Enviado' ao enviar dados para o sankhya sem a conexão
+    - erro na validação do pedido enviado
+    - ajuste do pedido pendente de envio
+    - correção no botão cancelar pedido, no caso de excluir o pedido e o botão voltar tela
+    - redução tempo de sincronização
+    - revisão do envio pendente
+- 1.1.025 (23/08/2023) - data de publicação em produção
+  - Implementações:
+    - banco off-line
+    - lista de pedidos anteriores: botão que exibe uma lista de pedidos com filtragem por status, ultimos 3 pedidos, agora exibe os ultimos 03 enviados
+  - Correções:
+    - erro do valor unitario zerado apos duplicar ou editar um pedido
+    - erro de pesquisa de produtos da distribuidora ao editar ou duplicar um pedido
+    - erro de falso 'Enviado' ao enviar dados para o sankhya sem a conexão
+    - erro na validação do pedido enviado
+    - ajuste do pedido pendente de envio
+    - correção no botão cancelar pedido, no caso de excluir o pedido e o botão voltar tela
+    - redução tempo de sincronização
+    - revisão do envio pendente
+- 1.1.026 (24/08/2023) - data de publicação em produção
+  - Implementações:
+    - banco off-line
+    - lista de pedidos anteriores: botão que exibe uma lista de pedidos com filtragem por status, ultimos 3 pedidos, agora exibe os ultimos 03 enviados
+  - Correções:
+    - mensagem para usuario caso link sankhya cair
+- 1.1.027 (24/08/2023) - data de publicação em produção
+  - Implementações:
+    - banco off-line
+    - lista de pedidos anteriores: botão que exibe uma lista de pedidos com filtragem por status, ultimos 3 pedidos, agora exibe os ultimos 03 enviados
+  - Correções:
+    - mensagem para usuario caso link sankhya cair
+    - mensagem para usuario caso link sankhya cair exibindo tambem ao receber dados
+- 1.1.028 (24/08/2023) - data de publicação em produção
+  - Implementações:
+    - banco off-line
+  - Correções:
+    - chamadas async
+- 1.1.029 (25/08/2023) - data de publicação em produção
+  - Implementações:
+    - mensagens de atualização de sistema
+  - Correções:
+    - (sem registro)
+- 1.1.030 (28/08/2023) - data de publicação em produção
+  - Implementações:
+    - mensagens de atualização de sistema
+  - Correções:
+    - correção no metodo de atualização, chamando o metodo no dia seguinte ao receber dados
+- 1.1.031 (29/08/2023) - data de publicação em produção
+  - Implementações:
+    - mensagens de atualização de sistema
+  - Correções:
+    - correção da busca de produtos por nome no desck
+    - correção do insert das tabelas adicionais no mobile
+    - correção da pesquisa por grupo no mobile
+- 1.1.032 (29/08/2023) - data de publicação em produção
+  - Implementações:
+    - mensagens de atualização de sistema
+  - Correções:
+    - correção da busca de produtos por nome no desck
+    - correção do insert das tabelas adicionais no mobile
+    - correção da pesquisa por grupo no mobile
+    - correção da zoom iphone
+- 1.1.033 (29/08/2023) - data de publicação em produção
+  - Implementações:
+    - (sem registro)
+  - Correções:
+    - correção da tabela adiconal trazendo valores e unidades zerados
+- 1.1.034 (01/09/2023) - data de publicação em produção
+  - Implementações:
+    - Nova estrutura de arquivo
+    - Adição da alicota de IPI
+  - Correções:
+    - correção do metodo excluir cabecalhos, não é mais executado o delete mas um um pudate na prop ativo
+    - não utilizar mais o banco pgamobileDelete no indexedDb
+- 1.1.035 (11/09/2023) - data de publicação em produção
+  - Implementações:
+    - Nova estrutura de arquivo
+    - Adição da alicota de IPI
+  - Correções:
+    - correção do metodo offline
+- 1.1.036 (12/09/2023) - data de publicação em produção
+  - Implementações:
+    - Nova estrutura de arquivo
+    - Adição da alicota de IPI
+  - Correções:
+    - correção do metodo offline
+    - correção do redefinir senha
+    - receber dados somente para o banco local em caso de mobile
+    - ajuste pedido, montando dados no front(mobile)
+- 1.1.037 (19/09/2023) - data de publicação em produção
+  - Implementações:
+    - Adição da alicota de IPI NO PDF
+  - Correções:
+    - (sem registro)
+- 1.1.038 (20/09/2023) - data de publicação em produção
+  - Implementações:
+    - Adição da alicota de IPI NO PDF
+    - Correção de Envio de Dados
+  - Correções:
+    - (sem registro)
+- 1.1.039 (25/09/2023) - data de publicação em produção
+  - Implementações:
+    - ALTERAÇÃO NO PARAMENTRO DO RESPONSE DE ERRO SANKHYA
+  - Correções:
+    - (sem registro)
+- 1.1.040 (02/10/2023) - data de publicação em produção
+  - Implementações:
+    - FRONT
+    - ALTERAÇÃO DO ENVIO DO PEDIDO, O PEDIDO SERÁ ENVIADO COMO PROCESSAR E O BOT IRÁ ENVIAR AO SANKHYA
+    - ALTERAÇÃO DA MENSAGEM AO ENVIAR PEDIDO AO SANKHYA, DEIXANDO MAIS CLARO O PROCESSO
+    - SALVANDO PEDIDO ITEM A ITEM
+    - SE O PEDIDO FOR MARCADO COMO PROCESSAR E NÃO PODERÁ SER DUPLICADO ATE MUDAR DE STATUS PARA ENVIADO
+    - VERSÃO DO FRONT SALVANDO NO CABEÇALHO DO PEDIDO
+    - RETIRADA A LÓGICA DO VERIFICAR PROCESSADO, SERÁ FEITO PELO BOT
+  - Correções:
+    - FRONT
+    - CORREÇÃO DO CONV AO EDITAR, CORRIGINDO O ERRO DE QUANTIDADES ERRADAS
+- 1.1.041 (05/10/2023) - data de publicação em produção
+  - Implementações:
+    - (sem registro)
+  - Correções:
+    - CORREÇÃO DO RECEBER DADOS VERIFICANDO DADOS ATUALIZADOS, ATUALIZAÇÃO AGORA FEITA AO CLICAR NO SELECT DO PARCEIRO
+- 1.1.042 (11/10/2023) - data de publicação em produção
+  - Implementações:
+    - (sem registro)
+  - Correções:
+    - CORREÇÃO DO SQL TIPONEGOCIAÇÃO DO RECEBER DADOS (MOBILE)
+- 1.1.043 (16/10/2023) - data de publicação em produção
+  - Implementações:
+    - CRIAÇÃO DE MODAL(CARREGANDO DADOS...) AO ESCOLHER O PEDIDO NAS LISTAS, E O MODAL COM A LISTA DE PEDIDOS SÓ APARECE APÓS A LISTA DOS ITENS ESTA PREENCHIDA.
+  - Correções:
+    - (sem registro)
+- 1.1.044 (01/11/2023) - data de publicação em produção
+  - Implementações:
+    - CRIAÇÃO DE CARD CAMPANHA NA HOME DOS VENDEDORES E COORDENADORES, COM BOTÃO (VISUALIZAR CAMPANHAS)
+    - CRIAÇÃO DA PAGE ACOMPANHAMENTO DE CAMPANHAS PARA VENDEDORES E COORDENADORES FILTRANDO POR CAMPANHAS
+    - VERIFICAÇÃO DE VALORES DOS ITENS DE PEDIDOS DUPLICACADOS OU EDITADOS,
+    - VERIFICA E ALTERA O VALOR PARA A TABELA ATUAL
+  - Correções:
+    - CORREÇÃO DOS ITENS DA LISTA DO PDF NA PGE PEDIDO.
+    - CORREÇÃO DE CABEÇALHOS DE VENDAS DUPLICADOS=======================================================================
+    - HOUVERAM DOIS CASOS DE REGISTROS DUPLICADOS NO MES DE OUTUBRO,REGISTROS DUPLAMENTE (2 OU 3 VEZES O MESMO REGISTRO)
+    - INSERIDOS NA TABELA CABECALHOVENDA, ESTAVAM SENDO INSERIDOS VIA AÇÃO DO USUARIO AO CLICAR NO BOTAO SALVAR E AO MESMO
+    - TEMPO ESTAVA SENDO SICRONIZADO ATRAVEZ DA FUNÇÃO SINCRONIZAR PEDIDOS, ONDE SINCRONIZA PEDIDOS COM A PROPRIEDADE
+    - SINCRONIZADO =='N' 
+    - FOI FEITA A CORREÇÃO ONDE O METODO DE SINCRONIZAR, NAO FARA MAIS A VERIFICAÇÃO QUANDO O USUARIOS ESTIVER EM DIGITAÇÃO DO PEDIDO
+    - SOMENTE É FEITA A PATIR DO MOMENTO QUE ELE FINALIZA O PEDIDO, DEIXANDO ESTE METODO RESPONSAVEL POR SALVAR O CABEÇALHO DO PEDIDO
+    - O SALVAR ITENS EM RASCUNHO EM MOBILE ESTA SALVANDO ITEM A ITEM NO BANCO LOCAL E DEPOIS SERA SINCRONIZADO O CABEÇALHOS COM ITENS
+    - PARA O BANCO DAS NUVENS, NA VERSÃO WEB CONTINUA SALVANDO ITEM A ITEM NO BANCO DAS NUVENS
+- 1.1.045 (16/11/2023) - data de publicação em produção
+  - Implementações:
+    - (sem registro)
+  - Correções:
+    - VERIFICAÇÃO DA QUANTIDADE DE ITENS SALVOS DO PEDIDO, VERIFICA SE A QUANTIDADE SALVA NO BANCO É A MESMA
+    - DO BANCO LOCAL, SOMENTE APOS A VERIFICAÇÃO OS ITENS E O CABEÇALHO SAO MARCADOS COMO SINCRONIZADO
+    - CORREÇÃO DE NÃO VERIFICAR A TABELA DE PREÇO QUANDO FOR A VENDEDORA 14713, POIS ELA TEM PRODUTOS REPETIDOS COM VALORES DIFERENTES
+    - O PRODUTO NA TABELA TEM UM VALOR E NA TABELA ADICIONAL TEM O MESMO PRODUTO COM OUTRO VALOR, NAO PODENDO HAVER A VERIFICAÇÃO DO VALOR
+    - CORREÇÃO DO SQL QUE RETORNA A META E A VENDA DO MES NO CARD HOME DO COORDENADOR
+- 1.1.046 (16/11/2023) - data de publicação em produção
+  - Implementações:
+    - (sem registro)
+  - Correções:
+    - IMPLEMENTADO ROTINA DE RDV - Relatorio de Vista.
+- 1.1.047 (18/11/2023) - data de publicação em produção
+  - Implementações:
+    - (sem registro)
+  - Correções:
+    - MELHORIA NO ENVIO DE PEDIDO DE VENDAS problema de Duplicar pedido ou item.
+- 1.1.048 (08/01/2025) - data de publicação em produção
+  - Implementações:
+    - (sem registro)
+  - Correções:
+    - Adicionado a empresa 3 Distribuidora no ..Pedidos/index.tsx linha 4328 correção appMobile 
+- 1.1.049 (02/03/2026) - data de publicação em produção
+  - Implementações:
+    - Atualização do Node.js da v18 para v20, visando ganho de performance. Migração para o Vite e otimização de chamadas de métodos e consultas ao banco local em dispositivos móveis.
+    - Na tela de pedido, clientes com origem no CE nao apliam IPI - CHAMADO:2601230026
+    - Preenchendo natureza padrão ao selecionar a cond. pgto.
+    - Lista de pedidos não enviados na home - CHAMADO:2601230026
+  - Correções:
+    - Correção da visualização do relatorio detalhado Vendas x meta dos consultores(Acompanhamento de vendas) - CHAMADO:2601230015
+    - Melhoria na busca do stastus online/offline, agora a cada 5 minutos é verificado o status da conexão e atualizado o status no header do app
+    - Ajustes nas buscas das metas filtrando por empresa != de 6(hanova) - CHAMADO:2512190006
+- 1.1.050 (15/03/2026) - data de publicação em produção
+  - Implementações:
+    - Lista de cliente que nao compram a mais de 90 dias na home - CHAMADO:2602260025
+  - Correções:
+    - (sem registro)
+
+BACKEND
+- .NET 6.0
+- Entity Framework
+- Integração Sankhya

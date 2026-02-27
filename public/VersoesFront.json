@@ -483,6 +483,7 @@
     "Versão": "1.1.049",
     "AtualizadoEm": "02/03/2026",
     "Implementações Realizadas": [
+      "Atualização do Node.js da v18 para v20, visando ganho de performance. Migração para o Vite e otimização de chamadas de métodos e consultas ao banco local em dispositivos móveis.",
       "Na tela de pedido, clientes com origem no CE nao apliam IPI - CHAMADO:2601230026",
       "Preenchendo natureza padrão ao selecionar a cond. pgto.",
       "Lista de pedidos não enviados na home - CHAMADO:2601230026"

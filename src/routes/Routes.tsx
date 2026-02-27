@@ -46,6 +46,8 @@ import PedidosProcessar from '../pages/Pedidos-Em-Processo';
 import Campanhas from '../pages/campanhas';
 import CadastroRdvs from '../pages/Rdvs';
 import RelPedNaoSeraFat from '../pages/Relatorio_PedNaoSeraFaturado';
+import PendenciasLista from '../components/Consultas/PendenciasLista';
+import Clientes60dLista from '../components/Consultas/Clientes60dLista';
 
 export interface IApplicationProps {}
 const usuario: iDadosUsuario = JSON.parse(
@@ -69,6 +71,8 @@ const Router: React.FunctionComponent<IApplicationProps> = (props) => {
         <Route path="/relatorio-vendedor" element={<RelatorioVendedor />} />
         <Route path="/relpednaoserafat" element={<RelPedNaoSeraFat />} />
         <Route path="/espaco-colaborador" element={<AreaColaborador />} />
+        <Route path="/consulta-pendencias" element={<PendenciasLista />} />
+        <Route path="/consulta-clientes-60d" element={<Clientes60dLista />} />
         <Route
           path="/acompanhamento-de-pedidos"
           element={<AcompanhamentoPedido />}

@@ -10232,9 +10232,10 @@ WHERE PRO.CODPROD <> 0 AND PRO.USOPROD IN ('V','R')`;
           );
           setIpiEscolhido(somaTotalIpiGet);
           IpiEscolhido = somaTotalIpiGet;
-          setShowMensageLoading(false);
           if (modalList || abrirViaListaNaoEnviado) {
             setShowlistaPedidosSelec(true);
+          } else {
+            setShowMensageLoading(false);
           }
         } catch {
           setLoading(false);
@@ -10298,9 +10299,10 @@ WHERE PRO.CODPROD <> 0 AND PRO.USOPROD IN ('V','R')`;
         );
         setIpiEscolhido(somaTotalIpiGet);
         IpiEscolhido = somaTotalIpiGet;
-        setShowMensageLoading(false);
         if (modalList || abrirViaListaNaoEnviado) {
           setShowlistaPedidosSelec(true);
+        } else {
+          setShowMensageLoading(false);
         }
       } catch (error) {
         setLoading(false);
@@ -10353,9 +10355,10 @@ WHERE PRO.CODPROD <> 0 AND PRO.USOPROD IN ('V','R')`;
           );
           setIpiEscolhido(somaTotalIpiGet);
           IpiEscolhido = somaTotalIpiGet;
-          setShowMensageLoading(false);
           if (modalList) {
             setShowlistaPedidosSelec(true);
+          } else {
+            setShowMensageLoading(false);
           }
         })
         .catch((error) => {
@@ -15001,6 +15004,7 @@ WHERE PRO.CODPROD <> 0 AND PRO.USOPROD IN ('V','R')`;
         <Modal
           className="modal-confirmLista2"
           show={showlistaPedidosSelec}
+          onEntered={() => setShowMensageLoading(false)}
           onHide={handleCloselistaPedidosSelec}
           backdrop="static"
         >
